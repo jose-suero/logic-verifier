@@ -1,0 +1,36 @@
+{
+  "name": "logic-verifier",
+  "version": "1.0.0",
+  "description": "An application to create logic flows and verify the output",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack --mode development",
+    "build-prod": "webpack --mode production",
+    "watch": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jose-suero/logic-verifier.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jose-suero/logic-verifier/issues"
+  },
+  "homepage": "https://github.com/jose-suero/logic-verifier#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^6.6.0",
+    "node-sass": "^7.0.1",
+    "prettier": "^2.5.1",
+    "rxjs": "^7.5.4",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
