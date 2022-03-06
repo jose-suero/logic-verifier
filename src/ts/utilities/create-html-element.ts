@@ -3,6 +3,7 @@ type THtmlElementSpecificationBase = {
     attributes?: { [key: string]: string };
     dataset?: { [key: string]: string };
     appendTo?: HTMLElement;
+    eventListeners?: { [key: string]: (event: Event) => void };
 }
 
 type THtmlElementSpecificationChildren = THtmlElementSpecificationBase & {
@@ -12,7 +13,6 @@ type THtmlElementSpecificationChildren = THtmlElementSpecificationBase & {
 type THtmlElementSpecificationTextContent = THtmlElementSpecificationBase & {
     textContent: string;
 }
-
 
 export type THtmlElementSpecification =
     THtmlElementSpecificationBase |
@@ -51,6 +51,12 @@ export function createHtmlElement(htmlSpecification: THtmlElementSpecification):
 
     if (appendTo) {
         appendTo.appendChild(element);
+    }
+
+    if ("eventListeners" in htmlSpecification) {
+        for (const eventName in htmlSpecification.eventListeners) {
+            element.addEventListener(eventName, htmlSpecification.eventListeners[eventName]);
+        }
     }
 
     return element;
